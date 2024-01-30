@@ -1,9 +1,31 @@
 {% extends "base.html" %}
-
-{% block title %}
-  Sign Up
-{% endblock %}
+{% block title %}Sign Up{% endblock %}
 
 {% block content %}
-<h1>Sign Up</h1> 
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form method="POST" class="form_">
+        <h3 class="text-center mb-4">Sign Up</h3>
+
+        <div class="form-border">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Enter email"
+            />
+          </div>
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
 {% endblock %}
+
