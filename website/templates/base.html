@@ -46,6 +46,14 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+        {% else %}
+          <!-- Display success messages with a close button -->
+          <div class="alert alert-success alter-dismissable fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
         {% endif %}
       {% endfor %}
     {% endif %} {% endwith %}
