@@ -1,18 +1,29 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from os import path
 
-# Define a function to create the Flask application
+db = SQLAlchemy()
+DB_NAME = "database.db"
+
 def create_app():
-    # Create an instance of the Flask class
     app = Flask(__name__)
-    # Set a secret key for the application (used for session management)
     app.config['SECRET_KEY'] = 'hjshjhdjah kjshkjdhjs'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    db.init_app(app)
 
     from .views import views
     from .auth import auth
 
-    # Register the blueprints with the main application
     app.register_blueprint(views, url_prefix='/')
     app.register_blueprint(auth, url_prefix='/')
 
+    from .models import User 
+    create_database(app)
 
     return app
+
+def create_database(app):
+    if not path.exists('website/' + DB_NAME):
+        with app.app_context():
+            db.create_all()
+        print('Created Database!')
