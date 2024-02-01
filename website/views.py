@@ -27,6 +27,9 @@ def normal():
 def obese():
     return render_template('obese.html')
 
+@views.route('/overweight')
+def overweight():
+    return render_template('overweight.html')
 
 
 
