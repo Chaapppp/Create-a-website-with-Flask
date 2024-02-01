@@ -15,6 +15,10 @@ def account():
 def article():
     return render_template('article.html')
 
+@views.route('/Categories')
+def Categories():
+    return render_template('Categories.html')
+
 @views.route('/bmi')
 @login_required
 def bmi():
