@@ -23,6 +23,10 @@ def Categories():
 def normal():
     return render_template('normal.html')
 
+@views.route('/obese')
+def obese():
+    return render_template('obese.html')
+
 
 
 
