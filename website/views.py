@@ -11,6 +11,10 @@ def welcome():
 def account():
     return render_template('account.html')
 
+@views.route('/article')
+def article():
+    return render_template('article.html')
+
 @views.route('/bmi')
 @login_required
 def bmi():
