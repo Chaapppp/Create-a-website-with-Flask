@@ -7,6 +7,10 @@ views = Blueprint('views',__name__)
 def welcome():
     return render_template('welcome.html')
 
+@views.route('/account')
+def account():
+    return render_template('account.html')
+
 @views.route('/bmi')
 @login_required
 def bmi():
