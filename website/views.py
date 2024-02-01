@@ -19,6 +19,20 @@ def article():
 def Categories():
     return render_template('Categories.html')
 
+@views.route('/normal')
+def normal():
+    return render_template('normal.html')
+
+
+
+
+
+
+
+
+
+
+
 @views.route('/bmi')
 @login_required
 def bmi():
