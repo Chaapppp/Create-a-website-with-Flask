@@ -6,10 +6,24 @@
 
 {% block content %}
 
-<br><br><br><br><br>
-<h1>Hello</h1>
-<h2>Welcome To Happy Healthy</h2>
-<br><br>
-<p>Empower your health journey with Happy Healthy.<br> We are dedicated to providing you with the necessary resources and tools <br>to support your well-being, enabling you to lead a healthier and more fulfilling life.<br> Our comprehensive services include a state-of-the-art Body Mass Index (BMI) calculator,<br> designed to assist you in monitoring and improving your physical health.<br> Take control of your health today and embark on a path to a happier and healthier you!</p>
+<body>
+    <br><br><br><br><br>
+    {% if user.is_authenticated %}
+    <h1>Hello {{user.first_name}}</h1>
+    <h2>Welcome To Happy Healthy</h2>
+    <br><br>
+    <p>Empower your health journey with Happy Healthy.<br> We are dedicated to providing you with the necessary resources and tools <br>to support your well-being, enabling you to lead a healthier and more fulfilling life.<br> Our comprehensive services include a state-of-the-art Body Mass Index (BMI) calculator,<br> designed to assist you in monitoring and improving your physical health.<br> Take control of your health today and embark on a path to a happier and healthier you!</p>
 
+    <br><br><br>
+    {% else %}
+    <h1>Welcome To Happy Healthy</h1>
+    <br><br>
+    <p>Empower your health journey with Happy Healthy.<br> We are dedicated to providing you with the necessary resources and tools <br>to support your well-being, enabling you to lead a healthier and more fulfilling life.<br> Our comprehensive services include a state-of-the-art Body Mass Index (BMI) calculator,<br> designed to assist you in monitoring and improving your physical health.<br> Take control of your health today and embark on a path to a happier and healthier you!</p>
+    <br><br><br>
+    <div class="btn-container">
+        <a href="/login" class="btn">Login</a>
+        <a href="/sign-up" class="btn">Sign Up</a>
+    </div>
+    {% endif %}
+</body>
 {% endblock %}
