@@ -5,8 +5,7 @@
 {% endblock %}
 
 {% block content %}
-
-<body>
+<link rel="stylesheet" type="text/css" href="../static/style/welcome.css">
     <br><br><br><br><br>
     {% if user.is_authenticated %}
     <h1>Hello {{user.first_name}}</h1>
@@ -25,5 +24,4 @@
         <a href="/sign-up" class="btn">Sign Up</a>
     </div>
     {% endif %}
-</body>
 {% endblock %}
