@@ -26,3 +26,25 @@ p {
     margin: 0 auto;
     max-width: 700px;
 }
+
+.btn-container {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    width: 150px;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn:hover {
+    background-color: #0056b3; 
+}
