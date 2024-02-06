@@ -1,8 +1,10 @@
-from flask import Blueprint ,render_template
+from flask import Blueprint ,render_template, flash
 from flask_login import login_required, current_user
 from flask_wtf import FlaskForm
 from wtforms import TelField, SubmitField
 from wtforms.validators import DataRequired
+import datetime 
+
 
 views = Blueprint('views',__name__)
 
@@ -60,5 +62,17 @@ def bmi():
     # Initialize variables and create a MyForm instance
     height = weight = Categories = bmi_value = None
     Form = MyForm()
+
+    if Form.validate_on_submit():
+        # Flash a message indicating the completion of calculation
+
+        try:
+            height = float(Form.height.data)
+            weight = float(Form.weight.data)
+            now = f'{((datetime.datetime.now()).date()).strftime("%d-%m-%Y")}'
+
+        except ValueError:
+            flash('Invalid input for height or weight', category='error')
+
     return render_template('bmi.html', form=Form, weight=weight, height=height, bmi=bmi_value, Categories=Categories, user=current_user)
 
