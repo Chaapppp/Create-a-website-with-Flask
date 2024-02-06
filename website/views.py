@@ -89,7 +89,9 @@ def bmi():
                 new_record = BmiRecords(user_id=current_user.id, weight=weight, height=height, bmi=bmi_value, categories=Categories,now=now)
                 db.session.add(new_record)
                 db.session.commit()
-
+            
+            Form.height.data = ''
+            Form.weight.data = ''
 
         except ValueError:
             flash('Invalid input for height or weight', category='error')
