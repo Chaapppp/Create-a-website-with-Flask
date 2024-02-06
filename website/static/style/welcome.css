@@ -1,50 +1,56 @@
+/* CSS for body */
 body {
-    background-image: url('../images/welcome_to.jpg'); 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    color: #333;
+    background-image: url('../images/welcome_to.jpg'); /* Set background image */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-attachment: fixed; /* Fixed background position */
+    background-size: cover; /* Cover the entire viewport */
+    font-family: 'Arial', sans-serif; /* Set font family */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: #f5f5f5; /* Fallback background color */
+    color: #333; /* Default text color */
 }
 
-h1 ,h2 {
-    text-align: center;
-    color: #0c0462;
+/* CSS for headings */
+h1, h2 {
+    text-align: center; /* Center-align headings */
+    color: #0c0462; /* Set heading color */
 }
 
+/* CSS for paragraphs */
 p {
-    text-align: center;
-    line-height: 1.5;
-    position: relative;
-    z-index: 1;
-    padding: 20px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.5); 
-    margin: 0 auto;
-    max-width: 700px;
+    text-align: center; /* Center-align paragraphs */
+    line-height: 1.5; /* Set line height */
+    position: relative; /* Set position to relative */
+    z-index: 1; /* Set z-index */
+    padding: 20px; /* Add padding */
+    border-radius: 10px; /* Set border radius */
+    background: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+    margin: 0 auto; /* Center-align horizontally */
+    max-width: 700px; /* Set maximum width */
 }
 
+/* CSS for buttons container */
 .btn-container {
-    text-align: center;
+    text-align: center; /* Center-align buttons */
 }
 
+/* CSS for buttons */
 .btn {
-    display: inline-block;
-    width: 150px;
-    margin: 20px;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    background-color: #007bff;
-    border-radius: 5px;
-    position: relative;
-    z-index: 1;
+    display: inline-block; /* Display buttons inline */
+    width: 150px; /* Set button width */
+    margin: 20px; /* Add margin */
+    padding: 10px; /* Add padding */
+    text-align: center; /* Center-align text */
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* Set text color */
+    background-color: #007bff; /* Set background color */
+    border-radius: 5px; /* Set border radius */
+    position: relative; /* Set position to relative */
+    z-index: 1; /* Set z-index */
 }
 
+/* CSS for button hover effect */
 .btn:hover {
-    background-color: #0056b3; 
+    background-color: #0056b3; /* Change background color on hover */
 }

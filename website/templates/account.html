@@ -5,22 +5,27 @@ Account
 {% endblock %}
 
 {% block content %}
+<!-- CSS link -->
 <link rel="stylesheet" type="text/css" href="../static/style/page.css">
 
+<!-- Page content -->
 <br>
 <div id="container">
     <h1>Account</h1>
     <hr>
     
+    <!-- User information -->
     <h5>{{email}}</h5>
     <li>{{first_name}}</li>
     <br>
     <hr>
+    
+    <!-- BMI Records -->
     <h3>BMI Records</h3>
     <ul>
         {% for bmi_record in bmi_records %}
         <li>
-            Date : {{bmi_record.now}} |
+            Date: {{bmi_record.now}} |
             Height: {{ bmi_record.height }} m |
             Weight: {{ bmi_record.weight }} kg |
             BMI: {{ bmi_record.bmi }} |
@@ -29,11 +34,9 @@ Account
         {% endfor %}
     </ul>
     
+    <!-- Logout button -->
     <div align="right">
         <a href="/logout" class="btn btn-danger">Logout</a>
     </div>
 </div>
-
-
 {% endblock %}
-
