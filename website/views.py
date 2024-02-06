@@ -64,12 +64,22 @@ def bmi():
     Form = MyForm()
 
     if Form.validate_on_submit():
-        # Flash a message indicating the completion of calculation
-
         try:
             height = float(Form.height.data)
             weight = float(Form.weight.data)
-            now = f'{((datetime.datetime.now()).date()).strftime("%d-%m-%Y")}'
+            now = f'{((datetime.datetime.now()).date()).strftime("%d-%m-%Y")}'\
+            
+            bmi_value = float(f'{weight / (height ** 2) * 10000 :.3f}')
+
+            if bmi_value >= 30:
+                Categories = 'obese'
+            elif 25 <= bmi_value < 30:
+                Categories = 'overweight'
+            elif 18.5 < bmi_value < 25:
+                Categories = 'normal'
+            elif bmi_value <= 18.5:
+                Categories = 'underweight'
+
 
         except ValueError:
             flash('Invalid input for height or weight', category='error')
