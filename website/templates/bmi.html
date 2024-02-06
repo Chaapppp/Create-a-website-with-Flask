@@ -1,28 +1,27 @@
 {% extends "base.html" %} {% block title %}BMI{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="../static/style/page.css">
+<style>
+    .btn-equal-width {
+        width: 150px;  
+    }
+</style>
     <br><br><br>
 
     <div  id='container' align="center">
-        <!-- Adding a heading and horizontal rule for styling -->
         <br><h1>BMI Calculator</h1><br><hr>
-        
-        <!-- Opening a container div with Bootstrap classes -->
+
         <div class="container my-2">
-            <!-- Starting a form with the POST method -->
             <form method="POST">
-                <!-- Adding a hidden field to the form for security -->
                 {{form.hidden_tag()}}
     
-                <!-- Displaying the label and input field for the "height" form field -->
                 {{form.height.label}}<br>
                 {{form.height()}} <br> <br>
-    
-                <!-- Displaying the label and input field for the "weight" form field -->
+
                 {{form.weight.label}}<br>
                 {{form.weight()}} <br><br>
-    
-                <!-- Displaying the submit button for the form -->
+
                 {{ form.submit(class="btn btn-primary btn-equal-width") }}
             {{ form.save_submit(class="btn btn-primary btn-equal-width") }}
             </form>
