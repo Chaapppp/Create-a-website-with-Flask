@@ -4,6 +4,8 @@ from flask_wtf import FlaskForm
 from wtforms import TelField, SubmitField
 from wtforms.validators import DataRequired
 import datetime 
+from . import db
+from .models import BmiRecords
 
 
 views = Blueprint('views',__name__)
@@ -79,6 +81,14 @@ def bmi():
                 Categories = 'normal'
             elif bmi_value <= 18.5:
                 Categories = 'underweight'
+
+            if Form.submit.data:
+                flash('Calculation completed')
+            elif Form.save_submit.data:
+                flash('Calculation completed and Saved')
+                new_record = BmiRecords(user_id=current_user.id, weight=weight, height=height, bmi=bmi_value, categories=Categories,now=now)
+                db.session.add(new_record)
+                db.session.commit()
 
 
         except ValueError:
