@@ -1,5 +1,8 @@
 from flask import Blueprint ,render_template
 from flask_login import login_required, current_user
+from flask_wtf import FlaskForm
+from wtforms import TelField, SubmitField
+from wtforms.validators import DataRequired
 
 views = Blueprint('views',__name__)
 
@@ -43,7 +46,19 @@ def underweight():
 
 
 
-@views.route('/bmi')
+class MyForm(FlaskForm):
+    # Define TelFields for height and weight, and a SubmitField
+    height = TelField('Enter your height (m)', validators=[DataRequired()])
+    weight = TelField('Enter your weight (Kg)', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+    save_submit = SubmitField('Save and Submit')
+
+# Define a route for '/bmi' with support for both GET and POST methods
+@views.route('/bmi', methods=['GET', 'POST'])
 @login_required
 def bmi():
-    return render_template('bmi.html', user=current_user)
+    # Initialize variables and create a MyForm instance
+    height = weight = Categories = bmi_value = None
+    Form = MyForm()
+    return render_template('bmi.html', form=Form, weight=weight, height=height, bmi=bmi_value, Categories=Categories, user=current_user)
+
