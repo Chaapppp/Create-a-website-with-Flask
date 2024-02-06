@@ -6,10 +6,32 @@ Account
 
 {% block content %}
 
+<br>
+<div id="container">
     <h1>Account</h1>
+    <hr>
+    
+    <h5>{{email}}</h5>
+    <li>{{first_name}}</li>
+    <br>
+    <hr>
+    <h3>BMI Records</h3>
+    <ul>
+        {% for bmi_record in bmi_records %}
+        <li>
+            Date : {{bmi_record.now}} |
+            Height: {{ bmi_record.height }} m |
+            Weight: {{ bmi_record.weight }} kg |
+            BMI: {{ bmi_record.bmi }} |
+            Categories: {{ bmi_record.categories }} 
+        </li>
+        {% endfor %}
+    </ul>
+    
     <div align="right">
         <a href="/logout" class="btn btn-danger">Logout</a>
     </div>
+</div>
 
 
 {% endblock %}
