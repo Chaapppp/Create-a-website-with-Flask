@@ -14,10 +14,6 @@ views = Blueprint('views',__name__)
 def welcome():
     return render_template('welcome.html', user=current_user)
 
-@views.route('/account')
-def account():
-    return render_template('account.html', user=current_user)
-
 @views.route('/article')
 def article():
     return render_template('article.html', user=current_user)
@@ -42,26 +38,15 @@ def overweight():
 def underweight():
     return render_template('underweight.html', user=current_user)
 
-
-
-
-
-
-
-
-
 class MyForm(FlaskForm):
-    # Define TelFields for height and weight, and a SubmitField
     height = TelField('Enter your height (m)', validators=[DataRequired()])
     weight = TelField('Enter your weight (Kg)', validators=[DataRequired()])
     submit = SubmitField('Submit')
     save_submit = SubmitField('Save and Submit')
 
-# Define a route for '/bmi' with support for both GET and POST methods
 @views.route('/bmi', methods=['GET', 'POST'])
 @login_required
 def bmi():
-    # Initialize variables and create a MyForm instance
     height = weight = Categories = bmi_value = None
     Form = MyForm()
 
@@ -97,4 +82,13 @@ def bmi():
             flash('Invalid input for height or weight', category='error')
 
     return render_template('bmi.html', form=Form, weight=weight, height=height, bmi=bmi_value, Categories=Categories, user=current_user)
+
+
+@views.route('/account')
+def account():
+    user = current_user
+    email = user.email
+    first_name = user.first_name
+    bmi_records = BmiRecords.query.filter_by(user_id=user.id).all()
+    return render_template('account.html', user=user, email=email, first_name=first_name, bmi_records=bmi_records)
 
