@@ -27,6 +27,23 @@
             {{ form.save_submit(class="btn btn-primary btn-equal-width") }}
             </form>
         </div>
+        {% if height %}
+            <h4><strong>Result</strong></h4>
+            <strong>Height :</strong> {{height}} <br>
+            <strong>Weight :</strong> {{weight}} <br>
+            <strong>BMI :</strong> {{bmi}} <br>
+
+            {% if Categories == 'obese'  %}
+                <strong>BMI Categories :</strong> <a href="/obese">Obese</a>
+            {% elif Categories == 'overweight'  %}
+                <strong>BMI Categories :</strong> <a href="/overweight">Overweight</a>
+            {% elif Categories == 'normal'  %}
+                <strong>BMI Categories :</strong> <a href="/normal">Normal</a>
+            {% elif Categories == 'underweight'  %}
+                <strong>BMI Categories :</strong> <a href="/underweight">Underweight</a>
+            {% endif %}
+        {% else %}
+        {% endif %}
     </div>
     
 {% endblock %}
