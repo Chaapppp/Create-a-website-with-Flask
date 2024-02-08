@@ -20,7 +20,7 @@
 git clone <repo-url>
 ```
 ```Copy code
-pip install -r requirements.txt
+pip install -r .\Create-a-website-with-Flask\requirements.txt
 ```
 
 ## Running and Viewing the Application
