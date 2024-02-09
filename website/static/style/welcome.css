@@ -14,7 +14,7 @@ body {
 /* CSS for headings */
 h1, h2 {
     text-align: center; /* Center-align headings */
-    color: #0c0462; /* Set heading color */
+    color: #33ad33; /* Set heading color */
 }
 
 /* CSS for paragraphs */
@@ -44,7 +44,7 @@ p {
     text-align: center; /* Center-align text */
     text-decoration: none; /* Remove underline */
     color: #fff; /* Set text color */
-    background-color: #007bff; /* Set background color */
+    background-color: #df0f0f; /* Set background color */
     border-radius: 5px; /* Set border radius */
     position: relative; /* Set position to relative */
     z-index: 1; /* Set z-index */

@@ -20,16 +20,14 @@ Account
     <br>
     <hr>
     
-    <!-- BMI Records -->
-    <h3>BMI Records</h3>
+    <!-- Text Records -->
+    <h3>Text Records</h3>
     <ul>
-        {% for bmi_record in bmi_records %}
+        {% for txt_records in txt_records %}
         <li>
-            Date: {{bmi_record.now}} |
-            Height: {{ bmi_record.height }} m |
-            Weight: {{ bmi_record.weight }} kg |
-            BMI: {{ bmi_record.bmi }} |
-            Categories: {{ bmi_record.categories }} 
+            Date: {{txt_records.now}} 
+            <br>
+            Text: {{txt_records.text}} 
         </li>
         {% endfor %}
     </ul>

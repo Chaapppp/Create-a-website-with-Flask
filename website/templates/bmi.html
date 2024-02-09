@@ -10,7 +10,7 @@
 <style>
     /* Define custom style for buttons to have equal width */
     .btn-equal-width {
-        width: 150px;  
+        width: 500px;  
     }
 </style>
     <!-- Add vertical space for better alignment -->
@@ -19,7 +19,7 @@
     <!-- Container for BMI calculator -->
     <div  id='container' align="center">
         <!-- Title for BMI calculator -->
-        <br><h1>BMI Calculator</h1><br><hr>
+        <br><h1>หัวเรื่อง</h1><br><hr>
 
         <!-- Form for BMI calculation -->
         <div class="container my-2">
@@ -27,39 +27,14 @@
                 <!-- Include hidden tag for CSRF protection -->
                 {{form.hidden_tag()}}
     
-                <!-- Input field for height -->
-                {{form.height.label}}<br>
-                {{form.height()}} <br> <br>
-
-                <!-- Input field for weight -->
-                {{form.weight.label}}<br>
-                {{form.weight()}} <br><br>
+                <!-- Input field for text -->
+                {{form.text.label}}<br>
+                {{form.text()}} <br> <br>
 
                 <!-- Submit buttons with equal width -->
-                {{ form.submit(class="btn btn-primary btn-equal-width") }}
                 {{ form.save_submit(class="btn btn-primary btn-equal-width") }}
             </form>
             <hr>
         </div>
-
-        <!-- Display BMI calculation result if available -->
-        {% if height %}
-            <h4><strong>Result</strong></h4>
-            <strong>Height :</strong> {{height}} <br>
-            <strong>Weight :</strong> {{weight}} <br>
-            <strong>BMI :</strong> {{bmi}} <br>
-
-            <!-- Display BMI category with link to corresponding page -->
-            {% if Categories == 'obese'  %}
-                <strong>BMI Categories :</strong> <a href="/obese">Obese</a>
-            {% elif Categories == 'overweight'  %}
-                <strong>BMI Categories :</strong> <a href="/overweight">Overweight</a>
-            {% elif Categories == 'normal'  %}
-                <strong>BMI Categories :</strong> <a href="/normal">Normal</a>
-            {% elif Categories == 'underweight'  %}
-                <strong>BMI Categories :</strong> <a href="/underweight">Underweight</a>
-            {% endif %}
-        {% else %}
-        {% endif %}
     </div>
 {% endblock %}
